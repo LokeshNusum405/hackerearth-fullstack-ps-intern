@@ -1,4 +1,4 @@
-from asyncio.windows_events import NULL
+
 from django.shortcuts import render,redirect
 from .models import PhotoModel
 import string
