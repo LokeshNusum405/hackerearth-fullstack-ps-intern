@@ -77,7 +77,11 @@ WSGI_APPLICATION = 'gallaryapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'dd1p4lo6dq8aui',
+        'USER': 'kqrazopubtzhjl',
+        'PASSWORD':'82ccd1cbeddd540d933ef8fd7aa89499cab955a37da006038ec4611ea44db41a',
+        'HOST':'ec2-54-87-179-4.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
