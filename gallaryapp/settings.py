@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'gallaryapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dd1p4lo6dq8aui',
         'USER': 'kqrazopubtzhjl',
         'PASSWORD':'82ccd1cbeddd540d933ef8fd7aa89499cab955a37da006038ec4611ea44db41a',
