@@ -33,7 +33,7 @@
     <nav class="navbar navbar-light" style="background-color: #e3f2fd">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'index' %}">Gallary App</a>
-        <form class="d-flex" method="post" action="{% url 'photosearch' %}">
+        <form class="d-flex" method="post" action="" enctype="form-data">
           {% csrf_token %}
           <input
             class="form-control me-3"
@@ -41,6 +41,7 @@
             placeholder="Search Photos"
             aria-label="Search"
             name="search"
+            id="search"
           />
           <input type="submit" class="btn btn-outline-primary" value="Search">
         </form>
@@ -52,17 +53,24 @@
     <div class="container"> 
         <div class="row">
             <div class="col-md-4"></div>
-        <div class="col-md-4"><h1>Gallary Photos</h1></div>
-        <div class="col-md-4" align="right"><a href="{% url 'new' %}"><button class="btn btn-outline-success" type="submit" >
-            Add New photo
+        <div class="col-md-4"><h1></h1></div>
+        <div class="col-md-4" align="right"><a href="{% url 'index' %}"><button class="btn btn-outline-success" type="submit" >
+            View All photos
           </button></a></div>
         </div>
     </div>
-    <div class="container-fluid mt-3 mb-5">
+    <center>
+      {% if search %}
+      <h1>You Searched for <u>{{ search }}</u> </h1>
+      {% else %}
+      <h1>Hey ! You Forget to Search for a Photo </h1>
+      {% endif %}
+    </center>
+    <div class="container-fluid m-5">
       
       <div class="container">
         <div class="row">
-            {% for photo in photosfinal %}
+            {% for photo in photos %}
             <div class="col-md-4">
             <a href="{% url 'show' photo.imageid %}" >
                 <div class="card my-2">
