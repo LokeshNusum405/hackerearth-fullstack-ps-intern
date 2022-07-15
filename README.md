@@ -2,11 +2,11 @@
 
 ### Tech stack - Django
 
-#To check the Demo Site Use the Below URL 
+### To check the Demo Site Use the Below URL 
 
 [https://hackerearthgallaryapp.herokuapp.com/](https://hackerearthgallaryapp.herokuapp.com/)
 
-To run locally Follow these Instructions:
+## To run locally Follow these Instructions:
 
 ### 1. Create a virtual environment 
 
