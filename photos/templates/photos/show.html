@@ -1,197 +1,135 @@
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Gallary App</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <style>
-      .img-thumbnail {
-        height: 200px;
-        object-fit: cover;
-      }
-      .img1 {
-        height: 100%;
-        width: 100%;
-      }
-      .img2 {
-        height: auto;
-        width: 100%;
-      }
-      .img3 {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-      }
-
-      .card:hover {
-        transition: all 0.2s ease-out;
-        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-        top: -4px;
-        border: 1px solid #cccccc;
-        background-color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">Gallary App</a>
-        <form class="d-flex">
-          <input
-            class="form-control me-3"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-    <br />
-
-    <!-- Tags Filter-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><h1>Photo Details</h1></div>
-        <div class="col-md-4" align="right">
-          <a href="{% url 'new' %}"
-            ><button class="btn btn-outline-success" type="submit">
-              Add New photo
-            </button></a
-          >
-        </div>
-      </div>
+{% extends 'photos/layout.html' %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h1>Photo Details</h1></div>
+    <div class="col-md-4" align="right">
+      <a href="{% url 'new' %}"
+        ><button class="btn btn-outline-success" type="submit">
+          Add New photo
+        </button></a
+      >
     </div>
-    <br />
+  </div>
+</div>
+<br />
 
-    <div class="container-fluid">
-      <div class="container">
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-lg-6">
+            <img
+              class="img1"
+              class="img-fluid"
+              src="{{photo.imageurl}}"
+              alt="{{image.imagename}}"
+            />
+          </div>
+
+          <div class="col-lg-6">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-12">
                 <img
-                  class="img1"
+                  class="img2"
                   class="img-fluid"
                   src="{{photo.imageurl}}"
                   alt="{{image.imagename}}"
                 />
               </div>
-
-              <div class="col-lg-6">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <img
-                      class="img2"
-                      class="img-fluid"
-                      src="{{photo.imageurl}}"
-                      alt="{{image.imagename}}"
-                    />
-                  </div>
-                </div>
-                <br />
-                <div class="row">
-                  <div class="col-lg-12">
-                    <img
-                      class="img3"
-                      class="img-fluid"
-                      src="{{photo.imageurl}}"
-                      alt="{{image.imagename}}"
-                    />
-                  </div>
-                </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-lg-12">
+                <img
+                  class="img3"
+                  class="img-fluid"
+                  src="{{photo.imageurl}}"
+                  alt="{{image.imagename}}"
+                />
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <form>
-              <div class="row">
-                <div class="col mb-6">
-                  <label for="inputEmail4">Image id </label
-                  ><input
-                    type="text"
-                    class="form-control"
-                    placeholder="Image id"
-                    value="{{photo.imageid}}"
-                    disabled
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-6">
-                    <label for="inputEmail4">Image Name </label>
-                  </div>
-                  <div class="col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Image Name"
-                      value="{{photo.imagename}}"
-                      disabled
-                    />
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div class="row">
-                <div class="col">
-                  {% comment %}
-                  <input
-                    type="text-area"
-                    class="form-control"
-                    placeholder="Image Details"
-                    value="{{photo.imagedetails}}"
-                    disabled
-                  />
-                  {% endcomment %}
-                  <label for="inputEmail4">Image Details </label>
-                  <textarea
-                    class="form-control"
-                    id="exampleFormControlTextarea3"
-                    rows="7"
-                    disabled
-                  >
-{{photo.imagedetails}}</textarea
-                  >
-                </div>
-              </div>
-              <br />
-              <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
-                  <a href="{% url 'edit' photo.imageid  %}" align="center"
-                    ><button type="button" class="btn btn-outline-success">
-                      Update Photo
-                    </button></a
-                  >
-                </div>
-                <div class="col-md-5">
-                  <a href="{% url 'delete' photo.imageid %}"
-                    ><button type="button" class="btn btn-outline-danger">
-                      Delete Photo
-                    </button></a
-                  >
-                </div>
-                <div class="col-md-1"></div>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
+      <div class="col-md-4">
+        <form>
+          <div class="row">
+            <div class="col mb-6">
+              <label for="inputEmail4">Image id </label
+              ><input
+                type="text"
+                class="form-control"
+                placeholder="Image id"
+                value="{{photo.imageid}}"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-6">
+                <label for="inputEmail4">Image Name </label>
+              </div>
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Image Name"
+                  value="{{photo.imagename}}"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col">
+              {% comment %}
+              <input
+                type="text-area"
+                class="form-control"
+                placeholder="Image Details"
+                value="{{photo.imagedetails}}"
+                disabled
+              />
+              {% endcomment %}
+              <label for="inputEmail4">Image Details </label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea3"
+                rows="7"
+                disabled
+              >
+{{photo.imagedetails}}</textarea
+              >
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+              <a href="{% url 'edit' photo.imageid  %}" align="center"
+                ><button type="button" class="btn btn-outline-success">
+                  Update Photo
+                </button></a
+              >
+            </div>
+            <div class="col-md-5">
+              <a href="{% url 'delete' photo.imageid %}"
+                ><button type="button" class="btn btn-outline-danger">
+                  Delete Photo
+                </button></a
+              >
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script src="" async defer></script>
-  </body>
-</html>
+{% endblock%}
