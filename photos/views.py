@@ -1,5 +1,5 @@
 
-from tkinter import image_names
+
 from django.shortcuts import render,redirect
 from .models import PhotoModel
 import string
