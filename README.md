@@ -30,5 +30,5 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-# Deployment Instructions
-**link to see deployment instructions** [Deployment Instructions](https://hackerearthgallaryapp.herokuapp.com/)
+##Deployment Instructions
+**Click Here to see** [Deployment Instructions](https://github.com/LokeshNusum405/hackerearth-fullstack-ps-intern/blob/master/DjangoDeploymentInstructions.pdf)
