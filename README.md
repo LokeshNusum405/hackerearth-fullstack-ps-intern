@@ -29,3 +29,6 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+# Deployment Instructions
+**link to see deployment instructions** [Deployment Instructions](https://hackerearthgallaryapp.herokuapp.com/)
